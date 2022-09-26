@@ -19,12 +19,9 @@ import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Testcontainers
-class SpringbootTestcontainersDemoApplicationTests {
+class SpringbootTestcontainersDemoApplicationTests extends AbstractContainerBaseTest{
 
-	//NB it should be static, otherwise it will start and stop before and after every testcase not the whole test class
-	@Container
-	private static MySQLContainer mySQLContainer = new MySQLContainer("mysql:latest");
+
 	@Autowired
 	private StudentRepository studentRepository;
 
@@ -34,11 +31,6 @@ class SpringbootTestcontainersDemoApplicationTests {
 	// given/when/then format - BDD style
 	@Test
 	public void givenStudents_whenGetAllStudents_thenListOfStudents() throws Exception {
-
-		System.out.println(mySQLContainer.getDatabaseName());
-		System.out.println(mySQLContainer.getPassword());
-		System.out.println(mySQLContainer.getUsername());
-		System.out.println(mySQLContainer.getJdbcUrl());
 		//given - setup or precondition
 		List<Student> students = List.of(
 				Student.builder().firstName("John").lastName("Smith").email("john@gmail.com").build(),

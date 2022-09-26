@@ -15,6 +15,9 @@ https://www.testcontainers.org/modules/databases/mysql/
 
 docker: search for docker hub
 
-https://hub.docker.com/ -> search for mysql "mysql docker oficial image" 
+https://hub.docker.com/ -> search for mysql "mysql docker official image" 
 
 https://hub.docker.com/_/mysql and check tags versions
+
+test container as abstract class - singleton containers
+https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/
