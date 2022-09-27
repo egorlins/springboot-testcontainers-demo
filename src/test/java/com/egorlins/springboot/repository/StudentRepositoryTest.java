@@ -28,9 +28,19 @@ class StudentRepositoryTest extends AbstractContainerBaseTest {
 
         //then - verify output
         Assertions.assertNotNull(savedStudent);
-        Assertions.assertNotNull(savedStudent.getId());
-
-
     }
 
+    @Test
+    public void giverStudentObject_whenFindById_thenReturnSavedStudent(){
+        //given - setup or precondition
+        Student student = Student.builder().firstName("John").lastName("Smith").email("john@gmail.com").build();
+        Student savedStudent = studentRepository.save(student);
+
+        //when - action or actual testing
+        Assertions.assertNotNull(savedStudent);
+        Student foundStudent = studentRepository.findById(savedStudent.getId()).get();
+
+        //then - verify output
+        Assertions.assertNotNull(foundStudent);
+    }
 }
