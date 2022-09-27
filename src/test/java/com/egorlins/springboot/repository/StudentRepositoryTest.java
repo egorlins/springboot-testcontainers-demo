@@ -1,5 +1,6 @@
 package com.egorlins.springboot.repository;
 
+import com.egorlins.springboot.AbstractContainerBaseTest;
 import com.egorlins.springboot.entity.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class StudentRepositoryTest {
+class StudentRepositoryTest extends AbstractContainerBaseTest {
 
     @Autowired
     private StudentRepository studentRepository;
